@@ -1,0 +1,28 @@
+{
+  "root": true,
+  "project": {
+    "name": "demo-pagebuilder"
+  },
+  "api": {
+    "projectId": "orswqn51",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/components",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool",
+    "vision"
+  ],
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema.js"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./deskStructure.js"
+    }
+  ]
+}
