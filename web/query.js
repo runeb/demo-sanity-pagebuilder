@@ -12,15 +12,30 @@ let subscription
 async function getData() {
   const query = `
   {
-    "company": *[_id == 'global-config'][0] {name},
+    "company": *[_id == 'global-config'][0],
     "frontPage": *[_id == 'landing-page'][0] {
       "modules": modules[] {
         ...,
         _type == 'salesPitch' => {
-          "items": carousel[] {
+          "carousel": carousel[] {
             title,
             subtitle,
-            "image": image.asset->.url
+            "image": image.asset->url
+          }
+        },
+        _type == 'testimonials' => {
+          "items": items[]->{
+            name,
+            position,
+            text,
+            "image": image.asset->url
+          }
+        },
+        _type == 'customers' => {
+          ...,
+          "logos": logos[] {
+            name,
+            "image": logo.asset->url
           }
         }
        }
@@ -33,6 +48,7 @@ async function getData() {
 }
 
 async function run() {
+  await getData()
   subscription = client.listen('*', {}, { visibility: 'query' })
   .subscribe(body => {
     if (body.result) {

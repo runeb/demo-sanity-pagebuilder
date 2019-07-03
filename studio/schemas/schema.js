@@ -17,6 +17,24 @@ const siteSettings = {
       name: 'name',
       type: 'string',
     },
+    // https://www.sanity.io/docs/schema-types/string-type
+    {
+      title: 'Address',
+      name: 'address',
+      type: 'string',
+    },
+    // https://www.sanity.io/docs/schema-types/string-type
+    {
+      title: 'Phone number',
+      name: 'phone',
+      type: 'string',
+    },
+    // https://www.sanity.io/docs/schema-types/string-type
+    {
+      title: 'Email address',
+      name: 'email',
+      type: 'string',
+    },
   ],
 }
 
@@ -62,7 +80,15 @@ const salesPitch = {
         {type: 'salesPitchItem'},
       ],
     },
-  ]
+  ],
+  preview: {
+    select: { },
+    prepare() {
+      return {
+        title: 'Sales pitch'
+      }
+    }
+  }
 }
 
 const tld = {
@@ -90,7 +116,21 @@ const domainSearch = {
   name: 'domainSearch',
   title: 'Domain Search',
   fields: [
-    // https://www.sanity.io/docs/schema-types/array-type
+    {
+      title: 'Title',
+      name: 'title',
+      type: 'string',
+    },
+    {
+      title: 'Subtitle',
+      name: 'subtitle',
+      type: 'string',
+    },
+    {
+      title: 'Call to action',
+      name: 'cta',
+      type: 'string',
+    },
     {
       title: 'TLDs',
       name: 'tlds',
@@ -99,7 +139,196 @@ const domainSearch = {
         {type: 'tld'},
       ],
     },
+  ],
+  preview: {
+    select: { },
+    prepare() {
+      return {
+        title: 'Domain Search'
+      }
+    }
+  }
+}
+
+const usageStat = {
+  type: 'object',
+  name: 'usageStat',
+  title: 'Usage stat',
+  fields: [
+    {
+      title: 'Name',
+      name: 'name',
+      type: 'string',
+    },
+    {
+      title: 'Stat',
+      name: 'number',
+      type: 'number',
+    },
   ]
+}
+
+const stats = {
+  title: 'Usage stats',
+  name: 'stats',
+  type: 'object',
+  fields: [
+    {
+      title: 'Title',
+      name: 'title',
+      type: 'string',
+    },
+    {
+      title: 'Stats',
+      name: 'stats',
+      type: 'array',
+      of: [
+        {type: 'usageStat'},
+      ],
+    },
+  ],
+  preview: {
+    select: { },
+    prepare() {
+      return {
+        title: 'Statistics'
+      }
+    }
+  }
+}
+
+const testimonial = {
+  title: 'Customer testimonial',
+  name: 'testimonial',
+  type: 'document',
+  fields: [
+    // https://www.sanity.io/docs/schema-types/image-type
+    {
+      title: 'Image',
+      name: 'image',
+      type: 'image',
+      options: {
+        hotspot: true // <-- Defaults to false
+      }
+    },
+    {
+      title: 'Name',
+      name: 'name',
+      type: 'string',
+    },
+    {
+      title: 'Position',
+      name: 'position',
+      type: 'string',
+    },
+    {
+      title: 'Text',
+      name: 'text',
+      type: 'text',
+      rows: 5
+    },
+  ],
+}
+
+const testimonials = {
+  title: "Testimonials",
+  name: "testimonials",
+  type: "object",
+  fields: [
+    {
+      title: "Title",
+      name: "title",
+      type: "string"
+    },
+    {
+      title: "Subtitle",
+      name: "subtitle",
+      type: "string"
+    },
+    // https://www.sanity.io/docs/schema-types/array-type
+    {
+      title: "Testimonials",
+      name: "items",
+      type: "array",
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'testimonial'}]
+        }
+      ]
+    }
+  ]
+};
+
+const pricingModule = {
+  type: 'object',
+  name: 'pricing',
+  fields: [
+    // https://www.sanity.io/docs/schema-types/string-type
+    {
+      title: 'Title',
+      name: 'title',
+      type: 'string',
+    },
+  ],
+  preview: {
+    select: {},
+    prepare() {
+      return {
+        title: 'Pricing'
+      }
+    }
+  }
+}
+
+const customerLogo = {
+  type: 'object',
+  name: 'customerLogo',
+  fields: [
+    // https://www.sanity.io/docs/schema-types/string-type
+    {
+      title: 'Name',
+      name: 'name',
+      type: 'string',
+    },
+    // https://www.sanity.io/docs/schema-types/image-type
+    {
+      title: 'Logo',
+      name: 'logo',
+      type: 'image',
+    },
+  ]
+}
+
+const customers = {
+  type: 'object',
+  name: 'customers',
+  fields: [
+    {
+      title: 'Title',
+      name: 'title',
+      type: 'string',
+    },
+    {
+      title: 'Subtitle',
+      name: 'subtitle',
+      type: 'string',
+    },
+    {
+      title: 'Logos',
+      name: 'logos',
+      type: 'array',
+      of: [ { type: 'customerLogo' } ],
+    },
+  ],
+  preview: {
+    select: {},
+    prepare() {
+      return {
+        title: 'Customers'
+      }
+    }
+  }
 }
 
 const landingPage = {
@@ -114,9 +343,24 @@ const landingPage = {
       of: [
         {type: 'salesPitch'},
         {type: 'domainSearch'},
+        {type: 'stats'},
+        {type: 'testimonials'},
+        {type: 'pricing'},
+        {type: 'customers'},
       ],
     },
-  ]
+  ],
+  preview: {
+    select: {
+      title: '',
+      subtitle: ''
+    },
+    prepare() {
+      return {
+        title: 'Landing page'
+      }
+    }
+  }
 }
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -131,7 +375,14 @@ export default createSchema({
     siteSettings,
     landingPage,
     salesPitch,
-    salesPitchItem
+    salesPitchItem,
+    stats,
+    usageStat,
+    testimonials,
+    testimonial,
+    pricingModule,
+    customers,
+    customerLogo
     /* Your types here! */
   ])
 })
