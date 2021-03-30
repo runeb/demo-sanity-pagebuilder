@@ -690,6 +690,10 @@
     in-publish "^2.0.0"
     promise-props-recursive "^1.0.0"
 
+"@sanity/cli@^0.141.5":
+  version "0.141.6"
+  resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-0.141.6.tgz#a77c031a73d3b24a18a54b862afa4eb73c69ae6f"
+
 "@sanity/client@0.141.5":
   version "0.141.5"
   resolved "https://registry.npmjs.org/@sanity/client/-/client-0.141.5.tgz#6e76ee749fd1f7cb3875387bd5b86c33473ba7de"
@@ -7793,8 +7797,8 @@ xxhashjs@^0.2.1:
     cuint "^0.2.2"
 
 y18n@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.npmjs.org/y18n/-/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.2.tgz#85c901bd6470ce71fc4bb723ad209b70f7f28696"
 
 yallist@^2.1.2:
   version "2.1.2"
