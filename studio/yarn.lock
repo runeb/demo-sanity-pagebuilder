@@ -690,6 +690,10 @@
     in-publish "^2.0.0"
     promise-props-recursive "^1.0.0"
 
+"@sanity/cli@^0.141.5":
+  version "0.141.6"
+  resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-0.141.6.tgz#a77c031a73d3b24a18a54b862afa4eb73c69ae6f"
+
 "@sanity/client@0.141.5":
   version "0.141.5"
   resolved "https://registry.npmjs.org/@sanity/client/-/client-0.141.5.tgz#6e76ee749fd1f7cb3875387bd5b86c33473ba7de"
@@ -3590,8 +3594,8 @@ hoist-non-react-statics@^3.3.0:
     react-is "^16.7.0"
 
 hosted-git-info@^2.1.4:
-  version "2.7.1"
-  resolved "https://registry.npmjs.org/hosted-git-info/-/hosted-git-info-2.7.1.tgz#97f236977bd6e125408930ff6de3eec6281ec047"
+  version "2.8.9"
+  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.9.tgz#dffc0bf9a21c02209090f2aa69429e1414daf3f9"
 
 hsl-regex@^1.0.0:
   version "1.0.0"
