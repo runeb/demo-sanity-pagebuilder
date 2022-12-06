@@ -690,6 +690,10 @@
     in-publish "^2.0.0"
     promise-props-recursive "^1.0.0"
 
+"@sanity/cli@^0.141.5":
+  version "0.141.6"
+  resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-0.141.6.tgz#a77c031a73d3b24a18a54b862afa4eb73c69ae6f"
+
 "@sanity/client@0.141.5":
   version "0.141.5"
   resolved "https://registry.npmjs.org/@sanity/client/-/client-0.141.5.tgz#6e76ee749fd1f7cb3875387bd5b86c33473ba7de"
@@ -6001,8 +6005,8 @@ qs@6.7.0:
   resolved "https://registry.npmjs.org/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
 
 qs@~6.5.2:
-  version "6.5.2"
-  resolved "https://registry.npmjs.org/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.3.tgz#3aeeffc91967ef6e35c0e488ef46fb296ab76aad"
 
 query-string@^4.3.2:
   version "4.3.4"
